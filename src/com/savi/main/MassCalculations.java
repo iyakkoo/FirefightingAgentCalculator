@@ -9,12 +9,12 @@ class MassCalculations {
 
     void calcGasMass(Area area, Gas gas) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("## Podaj temperaturę przechowywania butli z gazem z dokładnością do 1 stopnia C");
+        System.out.println("\n## Podaj temperaturę przechowywania butli z gazem z dokładnością do 1 stopnia C\n");
         System.out.print("Temperatura pomieszczenia: ");
         double temperature = scanner.nextInt();
         double gasVolume = k1[gas.getSelectedGas()] + k2[gas.getSelectedGas()] * temperature;
         double gasMass = (area.getTotalVolume() / gasVolume) * (gas.getGasConcentration()/(100 - gas.getGasConcentration()));
-        System.out.printf("Obliczona masa gazu wynosi %.1f kg", gasMass);
+        System.out.printf("\nObliczona masa gazu wynosi %.1f kg\n", gasMass);
     }
 
 

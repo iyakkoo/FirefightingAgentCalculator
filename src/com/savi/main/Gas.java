@@ -24,13 +24,13 @@ public class Gas {
                 "## 2 - dla IG-01\n" +
                 "## 3 - dla IG-100\n" +
                 "## 4 - dla IG-55\n" +
-                "## 5 - dla IG-541");
+                "## 5 - dla IG-541\n");
         int gasTypeChoose = 0;
         do {
             System.out.print("Rodzaj gazu: ");
             this.selectedGas = scanner.nextInt();
         } while (selectedGas < 0 || selectedGas > 5);
-        System.out.println("## Wybrano " + selectedGas);
+        System.out.println("## Wybrano " + gasTypes[selectedGas]);
     }
 
     int getSelectedGas() {
@@ -39,16 +39,16 @@ public class Gas {
 
     private void selectClass() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\t## Wybierz klasę zagrożenia\n" +
+        System.out.println("\n## Wybierz klasę zagrożenia\n" +
                 "## 0 - dla A\n" +
                 "## 1 - dla A+\n" +
-                "## 2 - dla B");
+                "## 2 - dla B\n");
 
         do {
             System.out.print("Klasa zagrożenia: ");
             selectedClass = scanner.nextInt();
-        } while (selectedClass < 0 || selectedClass > 3);
-        System.out.println("## Wybrano klasę zakrożenia: " + selectedClass);
+        } while (selectedClass < 0 || selectedClass > 2);
+        System.out.println("## Wybrano klasę zakrożenia: " + hazardClasses[selectedClass]);
     }
 
     public int getSelectedClass() {
