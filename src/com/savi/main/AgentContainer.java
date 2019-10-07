@@ -1,8 +1,11 @@
 package com.savi.main;
 
+import com.savi.gas.GasType;
+
 class AgentContainer {
 
-    void selectContainer(Gas gas, MassCalculations massCalculations) {
+
+    void selectContainer(GasType gasType, MassCalculations massCalculations) {
 
     }
 }

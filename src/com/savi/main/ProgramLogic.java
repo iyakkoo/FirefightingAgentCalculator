@@ -1,17 +1,19 @@
 package com.savi.main;
 
+import com.savi.gas.GasType;
+
 class ProgramLogic {
 
 
     void start() {
         Area area = new Area();
-        Gas gas = new Gas();
+        GasType gasType = new GasType();
         MassCalculations massCalculations = new MassCalculations();
         AgentContainer agentContainer = new AgentContainer();
 
         area.calcVolume();
-        gas.startGasSelection();
-        massCalculations.calcGasMass(area, gas);
-        agentContainer.selectContainer(gas, massCalculations);
+        gasType.startGasSelection();
+        massCalculations.calcGasMass(area, gasType);
+        agentContainer.selectContainer(gasType, massCalculations);
     }
 }

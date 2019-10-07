@@ -1,21 +1,31 @@
-package com.savi.main;
+package com.savi.gas;
 
 import java.util.Scanner;
 
-public class Gas {
+public class GasType {
     private String[] gasTypes = {"FK 5-1-12", "HFC227ea","IG-01", "IG-100", "IG-55", "IG-541"};
-    private int selectedGas;
+    private int choiceNumberForGasType;
     private String[] hazardClasses = {"A", "A+", "B"};
-    private int selectedClass;
+    private int choiceNumberForHazardClass;
     private double gasConcentration;
 
-    void startGasSelection(){
+    public void startGasSelection(){
         selectGas();
         selectClass();
         setGasConcentration();
     }
 
+    String getGasType (int selectedGas){
+        return gasTypes[selectedGas];
+    }
 
+    String getClass (int selectedClass){
+        return hazardClasses[selectedClass];
+    }
+
+    int getChoiceNumberForGasType() {
+        return choiceNumberForGasType;
+    }
     private void selectGas() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("## Wybierz rodzaj środka gaśniczego dla przestrzeni gaszonej\n" +
@@ -25,17 +35,14 @@ public class Gas {
                 "## 3 - dla IG-100\n" +
                 "## 4 - dla IG-55\n" +
                 "## 5 - dla IG-541\n");
-        int gasTypeChoose = 0;
         do {
             System.out.print("Rodzaj gazu: ");
-            this.selectedGas = scanner.nextInt();
-        } while (selectedGas < 0 || selectedGas > 5);
-        System.out.println("## Wybrano " + gasTypes[selectedGas]);
+            this.choiceNumberForGasType = scanner.nextInt();
+        } while (choiceNumberForGasType < 0 || choiceNumberForGasType > 5);
+        System.out.println("## Wybrano " + gasTypes[choiceNumberForGasType]);
     }
 
-    int getSelectedGas() {
-        return selectedGas;
-    }
+
 
     private void selectClass() {
         Scanner scanner = new Scanner(System.in);
@@ -43,16 +50,15 @@ public class Gas {
                 "## 0 - dla A\n" +
                 "## 1 - dla A+\n" +
                 "## 2 - dla B\n");
-
         do {
             System.out.print("Klasa zagrożenia: ");
-            selectedClass = scanner.nextInt();
-        } while (selectedClass < 0 || selectedClass > 2);
-        System.out.println("## Wybrano klasę zakrożenia: " + hazardClasses[selectedClass]);
+            choiceNumberForHazardClass = scanner.nextInt();
+        } while (0 > choiceNumberForHazardClass || choiceNumberForHazardClass > 2);
+        System.out.println("## Wybrano klasę zakrożenia: " + hazardClasses[choiceNumberForHazardClass]);
     }
 
-    public int getSelectedClass() {
-        return selectedClass;
+    public int getChoiceNumberForHazardClass() {
+        return choiceNumberForHazardClass;
     }
 
     private void setGasConcentration(){
@@ -62,8 +68,7 @@ public class Gas {
                                     {40.3,45.2,47.6},
                                     {40.3,45.2,47.6},
                                     {39.9,45.7,48.1}};
-        gasConcentration = concentrations[selectedGas][selectedClass];
-
+        gasConcentration = concentrations[choiceNumberForGasType][choiceNumberForHazardClass];
     }
 
     double getGasConcentration() {
